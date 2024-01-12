@@ -1,24 +1,21 @@
-package dev.pranjal.movies;
+package dev.priya.movies;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
 import java.util.List;
 
 @Document(collection = "movies")
-// this will let framework know this class represnets
-//each document in the movie collection
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+// this will let framework know this class represnets each document in the movie collection
 public class Movie {
-    @Data
-    @AllArgsConstructor
-    @NoArgsConstructor
-    @id
-    //this movie module would be used to pull some data from the database
-//    this will let the framework know that this prop should be treated as
-//    a unique indetfier for each movie in the database
+    @Id
     private String id;
     private String imdbId;
     private String title;

@@ -1,4 +1,4 @@
-package dev.pranjal.movies;
+package dev.priya.movies;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

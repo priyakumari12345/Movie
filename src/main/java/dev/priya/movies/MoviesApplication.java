@@ -1,4 +1,4 @@
-package dev.pranjal.movies;
+package dev.priya.movies;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

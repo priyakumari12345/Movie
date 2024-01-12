@@ -1,4 +1,4 @@
-package dev.pranjal.movies;
+package dev.priya.movies;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;

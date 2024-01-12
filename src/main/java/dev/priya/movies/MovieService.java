@@ -1,4 +1,4 @@
-package dev.pranjal.movies;
+package dev.priya.movies;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,8 @@ public class MovieService {
     private MovieRepository movieRepository;
 
     public List<Movie> allMovies(){
-    return movieRepository.findAll();//this findall is defined in movierepo class
+    return movieRepository.findAll();
+    };//this findall is defined in movierepo class
     public  Optional<Movie> singleMovie(String imdbId){
         return movieRepository.findMovieByImdbId(imdbId);
         }//optional means that if the id is not found then it may return null

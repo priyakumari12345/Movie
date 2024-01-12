@@ -1,4 +1,4 @@
-package dev.pranjal.movies;
+package dev.priya.movies;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;

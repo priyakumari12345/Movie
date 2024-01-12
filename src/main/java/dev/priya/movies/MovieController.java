@@ -1,4 +1,4 @@
-package dev.pranjal.movies;
+package dev.priya.movies;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Optional;
 // there are multiple layers in rest api in which one of the layer
 //is this controller
@@ -19,15 +20,19 @@ import java.util.Optional;
 public class MovieController {
      //reference to movie service class--down
      @Autowired
-    private MovieService MovieService;
-     @GetMapping
-    public ResponseEntity<List<Movie>> getallMovies(){// this is gettimg a request from the user
-        return new ResponseEntity<List<Movie>>(MovieService.allMovies(), HttpStatus.OK);// tyhis is returning a response to the user
-//HttpStatus.OK this means 200 response code check on terminal/we want rest api to return proper status codes
-        //.all movies //get all movies from the db and return req on tha page with ok status
-         @GetMapping("/{imdbId}")//trying to search movie by id
-                public ResponseEntity<Optional<Movie>> getSingleMovie(@PathVariable String imdbId){
-            return new ResponseEntity<Optional<Movie>>(movieService.singleMovie(imdbId), HttpStatus.OK));
-         }
-    }
-}
+    private MovieService movieService;
+    //we will write db access methods here
+    //reference of repository
+    @Autowired
+    //this will let the framework know to instantiate the below class
+    private MovieRepository movieRepository;
+
+    public List<Movie> allMovies(){
+        return movieRepository.findAll();}
+    //this findall is defined in movierepo class
+        public  Optional<Movie> singleMovie(String imdbId){
+            return movieRepository.findMovieByImdbId(imdbId);
+        }//optional means that if the id is not found then it may return null
+
+ }
+
